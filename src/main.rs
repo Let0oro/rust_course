@@ -1,50 +1,67 @@
+#![allow(unused_variables)]
+#![allow(unreachable_code)]
+
+use dialoguer::Select;
+use std::process::Command;
+
+mod _0_setup;
+use _0_setup::print::prints;
+
+mod _1_variables_and_mutability;
+use _1_::constants;
+use _1_::guess_number;
+use _1_::variables;
+use _1_variables_and_mutability as _1_; // _1_.../main.rs
+
+mod _2_data_types;
+use _2_data_types as _2_; //_2_.../mod.rs
+mod _3_functions;
+use _3_functions as _3_;
+mod _4_control_flow;
+use _4_control_flow as _4_;
+
 fn main() {
-    println!("\n");
+    let options: Vec<&str> = vec!["Prints", "Variables and mutability", "Data types", "Functions", "Control flow"];
 
-    println!("This is a macro, the other one code that i can use (some like node.console.log)\n");
+    clear_console();
 
-    eprintln!("This is an error message\n");
+    return  _4_::main(); // debug reasons
 
-    println!(
-        "I can use the 'rustfmt' command to format the code in a more readable way, and 'cargo fmt' to format all the files in my project\n"
-    );
+    let selection: usize = select_an_option(&options, "Select an option"); // Referencia a options, no se usa el ownership de options
+    // let selection: usize = select_an_option(options.clone(), "Select an option"); / arg options: Vec<&str> // Clona options, se usa el ownership de options y se hace una copia que no le afecta // Menos eficiente y más uso de memoria
 
-    println!(
-        "I can make an executable program of this FILE with the command: 'rustc main.rs' and then execute it with the command: './main'\n"
-    );
+    cases_option_selected(options, selection);
+}
 
-    println!(
-        "I can make an executable program of this PROJECT with the command: 'cargo build' and then execute it with the command: './[project_name]' in our ./target/(debug | release) folder\n"
-    );
-    println!("- cargo build may be both two ways: 'DEBUG' or 'RELEASE'\n");
 
-    println!(
-        "- 'DEBUG' (cargo b / build): will make a fast and no optimiced compilation, a good way to find and fix errors, the result is a exe more large\n"
-    );
+fn clear_console() {
+    let _clear: std::process::ExitStatus = match cfg!(target_os = "windows") {
+        true => Command::new("cmd").args(&["/C", "cls"]).status().unwrap(),
+        false => Command::new("clear").status().unwrap(),
+    };
+}
 
-    println!(
-        "- 'RELEASE' (cargo b / build --release): takes more time in compliling but will make a better performance optimiced compilation and the result is the 'final version' of our program, smaller and more depured\n"
-    );
+fn select_an_option(options: &[&str], title: &str) -> usize {
+    Select::new()
+        .with_prompt(title)
+        .default(0)
+        .items(&options)
+        .interact()
+        .unwrap()
+}
 
-    println!("In order to clean all the executables we had make, we can use 'cargo clean' \n");
-
-    println!("Cargo build + run the program = 'cargo r / run'\n");
-
-    println!("Cargo build + run the program in debug mode = 'cargo run --debug'\n");
-    println!("Cargo build + run the program in release mode = 'cargo run --release'\n");
-
-    println!("Run the program in debug mode + show ALL the output and proccesses and memorial = 'cargo run --debug --verbose'\n");
-    println!(
-        "Run the program in release mode + show ONLY the output = 'cargo run --release --quiet'\n"
-    );
-
-    println!("To check the violeations of the compiler, we can use 'cargo check'\n");
-
-    print!("Hello, i'm an inline print... ");
-    print!("in the same line that the last print\n");
-
-    // This is a comment
-    /* This is another comment */
-
-    println!("\n");
+fn cases_option_selected(options: Vec<&str>, selection: usize) {
+    match options[selection] {
+        "Prints" => prints(),
+        "Variables and mutability" => {
+            variables::main();
+            constants::main();
+            _1_::exercise::main();
+            guess_number::main();
+        },
+        "Data types" => _2_::main(),
+        "Functions" => _3_::main(),
+        "Control flow" => _4_::main(),
+        _ => println!("Please select a valid option"),
+    }
 }
