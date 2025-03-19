@@ -1,14 +1,12 @@
 #![allow(unused_variables)]
 
 pub fn main() {
+    let state: bool = true;
 
-  let state: bool = true;
+    println!("Debugging");
 
-  
-  println!("Debugging");
-  
-  let seconds: u32 = 60;
-  println!("Pre-debug-point");
+    let seconds: u32 = 60;
+    println!("Pre-debug-point");
 
-  println!("Post-debug-point");
+    println!("Post-debug-point");
 }

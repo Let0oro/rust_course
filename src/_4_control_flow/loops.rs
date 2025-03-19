@@ -1,11 +1,7 @@
-
-
 pub fn main() {
-
     loops();
     while_loop();
     recursive_function();
-
 }
 
 fn loops() {

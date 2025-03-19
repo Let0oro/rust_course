@@ -12,7 +12,6 @@ pub fn main() {
     #[allow(unused_variables)]
     let event_time: &str = "06:00";
     #[warn(unused_variables)]
-
     let event_time: i32 = 6;
 
     println!(

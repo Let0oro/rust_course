@@ -1,5 +1,3 @@
-
-
 pub fn main() {
     let season = "summer";
     let attitude = seasons_attitude(season);
@@ -40,11 +38,10 @@ fn seasons_attitude(season: &str) -> &str {
     }
 }
 
-
 fn seasons_attitude_v2(season: &str) -> &str {
-  match season {
-    "summer" | "winter" => "Hate it!",
-    "fall" | "spring" => "Love it!",
-    _ => unreachable!(),
-  }
+    match season {
+        "summer" | "winter" => "Hate it!",
+        "fall" | "spring" => "Love it!",
+        _ => unreachable!(),
+    }
 }

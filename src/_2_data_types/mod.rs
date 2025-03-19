@@ -1,26 +1,26 @@
+mod casting_types;
+mod floats;
 mod integers;
 mod sizes;
 mod strings;
-mod floats;
-mod casting_types; 
 use casting_types as casting;
-mod chars;
 mod arrays;
+mod chars;
+mod exercise;
+mod ranges;
 mod traits;
 mod tuples;
-mod ranges;
-mod exercise;
 
-pub fn main () {
-  integers::main();
-  sizes::main();
-  strings::main();
-  floats::main();
-  casting::main();
-  chars::main();
-  arrays::main();
-  traits::main();
-  tuples::main();
-  ranges::main();
-  exercise::main();
+pub fn main() {
+    integers::main();
+    sizes::main();
+    strings::main();
+    floats::main();
+    casting::main();
+    chars::main();
+    arrays::main();
+    traits::main();
+    tuples::main();
+    ranges::main();
+    exercise::main();
 }
