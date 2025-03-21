@@ -1,18 +1,17 @@
-mod immut_ref;
 mod dangling_ref;
+mod exercise;
+mod immut_ref;
 mod mut_ref;
 mod owner_arr_tuplas;
-mod exercise;
 
-pub fn main () {
-  println!("\n References and Borrowing");
+pub fn main() {
+    println!("\n References and Borrowing");
 
-  immut_ref::main();
-  mut_ref::main();
-  dangling_ref::main();
-  owner_arr_tuplas::main();
-  exercise::main();
-  
+    immut_ref::main();
+    mut_ref::main();
+    dangling_ref::main();
+    owner_arr_tuplas::main();
+    exercise::main();
 
-  println!("---\n");
+    println!("---\n");
 }

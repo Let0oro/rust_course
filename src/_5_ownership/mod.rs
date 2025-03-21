@@ -1,9 +1,9 @@
-mod mem;
-mod strings;
 mod copy;
+mod exercise;
+mod mem;
 mod mutability;
 mod returned;
-mod exercise;
+mod strings;
 
 pub fn main() {
     println!("\nOwnership");
@@ -17,12 +17,10 @@ pub fn main() {
     println!(
         "Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks at compile time."
     );
-    println!(
-        "None of the ownership features slow down your program while it’s running."
-    );
+    println!("None of the ownership features slow down your program while it’s running.");
 
     mem::main();
-    
+
     strings::main();
 
     copy::main();
