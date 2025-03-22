@@ -34,6 +34,9 @@ use _7_slices as _7_;
 mod _8_structs;
 use _8_structs as _8_;
 
+mod _9_enums;
+use _9_enums as _9_;
+
 fn main() {
     let options: Vec<&str> = vec![
         "Prints",
@@ -44,11 +47,13 @@ fn main() {
         "Ownership",
         "Reference and Borrowing",
         "Slices",
+        "Structs",
+        "Enums",
     ];
 
     clear_console();
 
-    return _8_::main(); // debug reasons
+    // return _8_::main(); // debug reasons
 
     let selection: usize = select_an_option(&options, "Select an option"); // Referencia a options, no se usa el ownership de options
     // let selection: usize = select_an_option(options.clone(), "Select an option"); / arg options: Vec<&str> // Clona options, se usa el ownership de options y se hace una copia que no le afecta // Menos eficiente y más uso de memoria
@@ -87,6 +92,8 @@ fn cases_option_selected(options: Vec<&str>, selection: usize) {
         "Ownership" => _5_::main(),
         "Reference and Borrowing" => _6_::main(),
         "Slices" => _7_::main(),
+        "Structs" => _8_::main(),
+        "Enums" => _9_::main(),
 
         _ => println!("Please select a valid option"),
     }
