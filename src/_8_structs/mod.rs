@@ -1,9 +1,9 @@
-mod in_fn;
 mod asociated_fn;
 mod build_pattern;
+mod exercise;
+mod in_fn;
 mod tuple_structs;
 mod unit_structs;
-mod exercise;
 
 pub fn main() {
     println!("Structs:");
@@ -58,29 +58,26 @@ pub fn main() {
     );
 
     let favorite_coffee = mocha.name;
-    println!("let favorite_coffee = mocha.name; -> The ownership has changed to favorite_coffee from the struct mocha.name");
+    println!(
+        "let favorite_coffee = mocha.name; -> The ownership has changed to favorite_coffee from the struct mocha.name"
+    );
 
-
-    
     let mut beverage = Coffee {
-      price: 4.99,
-      name: String::from("Mocha"),
-      is_hot: true,
-  };
+        price: 4.99,
+        name: String::from("Mocha"),
+        is_hot: true,
+    };
 
-  beverage.name = String::from("Caramel Macchiato");
-  beverage.price = 5.99;
-  beverage.is_hot = false;
+    beverage.name = String::from("Caramel Macchiato");
+    beverage.price = 5.99;
+    beverage.is_hot = false;
 
-
-
-
-  in_fn::main();
-  asociated_fn::main();
-  build_pattern::main();
-  tuple_structs::main();
-  unit_structs::main();
-  exercise::main();  
+    in_fn::main();
+    asociated_fn::main();
+    build_pattern::main();
+    tuple_structs::main();
+    unit_structs::main();
+    exercise::main();
 
     println!("---\n");
 }
