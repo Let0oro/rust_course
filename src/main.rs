@@ -36,6 +36,8 @@ use _8_structs as _8_;
 
 mod _9_enums;
 use _9_enums as _9_;
+mod _10_generics;
+use _10_generics as _10_;
 
 fn main() {
     let options: Vec<&str> = vec![
@@ -49,6 +51,7 @@ fn main() {
         "Slices",
         "Structs",
         "Enums",
+        "Generics",
     ];
 
     clear_console();
@@ -94,6 +97,7 @@ fn cases_option_selected(options: Vec<&str>, selection: usize) {
         "Slices" => _7_::main(),
         "Structs" => _8_::main(),
         "Enums" => _9_::main(),
+        "Generics" => _10_::main(),
 
         _ => println!("Please select a valid option"),
     }
