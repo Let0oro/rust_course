@@ -1,4 +1,6 @@
 pub fn main() {
+
+    println!("Chars:");
     let c: char = 'z';
     let z: char = 'ℤ';
 
@@ -69,4 +71,6 @@ pub fn main() {
         heart_eyed_cat.is_control(),
         face.is_control()
     );
+
+    println!("---\n");
 }

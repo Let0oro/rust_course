@@ -1,9 +1,11 @@
 #![allow(unused_variables)] // debug reasons
 #![allow(unreachable_code)] // debug reasons
 
+// "use" sirve para concretar qué es lo que vas a usar de una importación, por ejemplo, de la siguiente usaremos "Select" y valdrá como el nombre completo
 use dialoguer::Select;
 use std::process::Command;
 
+// "mod" sirve para importar otros archivos, estos últimos tienen que estar al mismo nivel que este directorio, en una carpeta llamada "mod" o en un archivo con este mismo nombre
 mod _0_setup;
 use _0_setup::print::prints;
 
@@ -36,10 +38,22 @@ use _8_structs as _8_;
 
 mod _9_enums;
 use _9_enums as _9_;
+
 mod _10_generics;
 use _10_generics as _10_;
 
+mod _11_opt_result_enums;
+use _11_opt_result_enums as _11_;
+
+mod _12_vectors;
+use _12_vectors as _12_;
+
+mod _13_warehouse;
+use _13_warehouse as _13_;
+
+
 fn main() {
+    // vector (o array de tamaño no fijo) para seleccionar en consola el temario en concreto que se quiera ver
     let options: Vec<&str> = vec![
         "Prints",
         "Variables and mutability",
@@ -52,6 +66,9 @@ fn main() {
         "Structs",
         "Enums",
         "Generics",
+        "Option And Result Enums",
+        "Vectors",
+        "Warehouse",
     ];
 
     clear_console();
@@ -64,6 +81,7 @@ fn main() {
     cases_option_selected(options, selection);
 }
 
+// función para limpiar la consola dependiendo de si el OS es windows o macOS
 fn clear_console() {
     let _clear: std::process::ExitStatus = match cfg!(target_os = "windows") {
         true => Command::new("cmd").args(&["/C", "cls"]).status().unwrap(),
@@ -71,6 +89,7 @@ fn clear_console() {
     };
 }
 
+// función para seleccionar una opción a partir de un array de strings con un título personalizado, el usuario podrá actuar gracias a .interact(), lo que devolverá el index escogido
 fn select_an_option(options: &[&str], title: &str) -> usize {
     Select::new()
         .with_prompt(title)
@@ -80,6 +99,7 @@ fn select_an_option(options: &[&str], title: &str) -> usize {
         .unwrap()
 }
 
+// función que sirve como condicional (como un switch en js), no devuelve nada sino que ejecuta el código adjuntado a cada opción
 fn cases_option_selected(options: Vec<&str>, selection: usize) {
     match options[selection] {
         "Prints" => prints(),
@@ -98,6 +118,9 @@ fn cases_option_selected(options: Vec<&str>, selection: usize) {
         "Structs" => _8_::main(),
         "Enums" => _9_::main(),
         "Generics" => _10_::main(),
+        "Option And Result Enums" => _11_::main(),
+        "Vectors" => _12_::main(),
+        "Warehouse" => _13_::main(),
 
         _ => println!("Please select a valid option"),
     }

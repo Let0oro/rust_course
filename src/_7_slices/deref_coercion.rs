@@ -1,5 +1,5 @@
 pub fn main() {
-    println!("\nDeref coertion with arrays");
+    println!("\nDeref coercion with arrays");
     let values = [4, 8, 15, 16, 32, 43];
 
     let reg_ref = &values;

@@ -1,0 +1,1 @@
+pub const GREET: &str = "IM A CONSTANT IN A SUBMODULE";

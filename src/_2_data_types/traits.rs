@@ -1,6 +1,7 @@
 pub fn main() {
     println!("Traits\n (Example with Display and Debug)\n");
 
+    // A trait is an inherit property or behaviour attached to a primitive or object, for example, if some object wouldn't have the Display trait, it can't be printed by common way
     // The Display trait is used to format the output in a more user-friendly way
     // The Debug trait is used to format the output in a more programmer-friendly way
 

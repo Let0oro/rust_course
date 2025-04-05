@@ -1,5 +1,5 @@
 pub fn main() {
-    println!("Immutable references\n");
+    println!("Mutable references\n");
 
     println!(
         " - If at least i  had declare a mutable reference, i cant use any other immutable or mutable reference cause the value of the ref is possibly to has been changed"

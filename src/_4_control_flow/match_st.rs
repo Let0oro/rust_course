@@ -1,4 +1,6 @@
 pub fn main() {
+    println!("Match:\n");
+
     let season = "summer";
     let attitude = seasons_attitude(season);
     println!("{}: {}", season, attitude);
@@ -26,6 +28,8 @@ pub fn main() {
     let season = "fall";
     let attitude = seasons_attitude_v2(season);
     println!("{}: {}", season, attitude);
+
+    println!("---\n");
 }
 
 fn seasons_attitude(season: &str) -> &str {
