@@ -1,0 +1,20 @@
+use std::fs;
+use std::io::{stdin, Error, Read};
+
+pub fn main () {
+    let file_result = read_file();
+    match file_result {
+        Ok(contents) => println!("{}", contents),
+        Err(error) => eprintln!("There was an error: {:?}", error),
+    }
+}
+
+fn read_file() -> Result<String, Error> {
+    println!("Please, enter the name of the file you'd like to read");
+
+    let mut input = String::new();
+    stdin().read_line(&mut input)?;
+
+    let file_contents = fs::read_to_string(input.trim())?;
+    Ok(file_contents)
+}
