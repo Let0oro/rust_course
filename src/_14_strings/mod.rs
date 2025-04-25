@@ -12,8 +12,8 @@ pub fn main() {
     println!("String::from(\"Bloodhook\")[0..1] GOOD");
     println!("String::from(\"Bloodhook\").get(0..1).unwrap() VERY GOOD");
 
-    println!("{}", String::from("Boodhook")[0]);
-    println!("{}", String::from("Boodhook")[0..1]);
+    // println!("{}", String::from("Boodhook")[0]); BAD
+    // println!("{}", String::from("Boodhook")[0..1]); BAD, unknown size
     println!("{}", String::from("Boodhook").get(0..1).unwrap());
 
     println!("\n--\n");
@@ -75,11 +75,11 @@ pub fn main() {
 
     println!("Hello {name}");
 
-    let mut age: u32;
+    let mut age: u32 = 0;
     println!("What's your age");
 
-    match io::stdin().read_line(&mut age.parse::<u32>().unwrap_or(0)) {
-        Ok::<u32> => println!("You are {age} years old"),
+    match io::stdin().read_line(&mut age.to_string()) {
+        Ok(age) => println!("You are {age} years old"),
         Error=> println!("Error collecting age")
     };
 

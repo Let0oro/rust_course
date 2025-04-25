@@ -22,7 +22,7 @@ Delete one of the two files using the `delete_file`
 method. Print out the Folder in Debug format.
 
 Call the `get_file` method. Use a match statement
-to react to both Option variants. For the Some variant,
+to react to both Option variants. For Some variant,
 print out the File in Debug format. For the None variant,
 print out the text "There was no file".
 */
@@ -53,7 +53,7 @@ impl Folder {
         self.contents.remove(index)
     }
 
-    fn get_file (&mut self, index: usize) -> Some(&File) {
+    fn get_file (&mut self, index: usize) -> Option<&File> {
         self.contents.get(index)
     }
 }

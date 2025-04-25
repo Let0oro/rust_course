@@ -146,6 +146,7 @@ impl Flight {
 }
 
 impl BusTrip {
+    #[allow(clippy::new_ret_no_self)]
     fn new(origin: &str, destination: &str, time: &str) -> Self {
         Self {
             origin: origin.to_string(),
@@ -214,8 +215,8 @@ pub fn main() {
     println!("{a:?} != {c:?} -> {}", a.ne(&c));
     println!("{b:?} != {c:?} -> {}", b.ne(&c));
     println!("Flight {c:?} time == BusTrip {d:?} time -> {}", c.eq(&d));
-    ///c == d -> OK // d == c -> BAD, cause '==' is using backwards '.eq', and the BusTrip not has the PartialEq trait with Flights
-    /// SO: THE OPERATORS INVOKE METHODS BEHIND THE SCENES
+    //c == d -> OK // d == c -> BAD, cause '==' is using backwards '.eq', and the BusTrip not has the PartialEq trait with Flights
+    // SO: THE OPERATORS INVOKE METHODS BEHIND THE SCENES
     println!("Flight {c:?} time == BusTrip {d:?} time -> {}", c == d);
-    println!("Flight {c:?} time == BusTrip {d:?} time -> {}", d == c);
+    // println!("Flight {c:?} time == BusTrip {d:?} time -> {}", d == c); -> Error
 }

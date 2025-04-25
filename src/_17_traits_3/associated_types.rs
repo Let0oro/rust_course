@@ -14,7 +14,7 @@ struct Lunch {
 impl Add for Lunch {
     type Output = Lunch;
 
-    fn add(&self, rhs: &Self) -> Self::Output {
+    fn add(self, rhs: Self) -> Self::Output {
         Self { cost: self.cost + rhs.cost }
     }
 }

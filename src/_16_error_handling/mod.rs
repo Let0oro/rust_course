@@ -1,8 +1,8 @@
 mod file_management;
 mod exercise;
 
-use std::char::REPLACEMENT_CHARACTER;
-use std::process;
+//use std::char::REPLACEMENT_CHARACTER;
+//use std::process;
 
 pub fn main() {
     println!("\n---\n");

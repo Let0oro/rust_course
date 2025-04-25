@@ -50,7 +50,7 @@ pub fn main () {
 
     println!("The common way would be with some like this: vector[index]");
     let piece_of_pizza = pizza_diameters[1];
-    let night_movie = rick_moranis_movies[1..3];
+    let night_movie = &rick_moranis_movies[1..3];
 
     println!("But we knows a better way, more safe: vector.get(index) -> Option");
     let piece_of_pizza = pizza_diameters.get(1);
@@ -63,7 +63,7 @@ pub fn main () {
     let pepperoni = String::from("Pepperoni");
     let mushroom = String::from("Mushroom");
     let sausage = String::from("Sausage");
-    let pizza_toppings = vec![pepperoni, mushroom, sausage];
+    let mut pizza_toppings = vec![pepperoni, mushroom, sausage];
 
     println!("Don't have the Copy trait, it will be in the heap");
     println!("Then, this will follow the same ownership seen in the course, like in the String specially");

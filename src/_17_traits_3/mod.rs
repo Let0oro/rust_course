@@ -15,7 +15,7 @@ mod partialord;
 mod associated_types;
 mod exercise;
 
-#[derive(PartialEq, Eq)]
+#[derive(Eq)]
 enum Musician {
     SingleSongWriter(String),
     Band(u32)
@@ -43,6 +43,7 @@ impl PartialEq for Musician {
             (SingleSongWriter(writer), SingleSongWriter(other_writer)) => writer == other_writer,
             (Band(band_people), Band(other_band_people)) => band_people == other_band_people,
             (SingleSongWriter(_), Band(_)) => false,
+            (Band(_), SingleSongWriter(_)) => false,
         }
     }
 }

@@ -28,13 +28,10 @@ Recommended refactor tree: (imagine our mod.rs is actually a main.rs binary crat
 
 use std::collections::HashMap;
 use std::fmt::Display;
-use _Number::{Single, Many};
 
 /// This trait requires that every type implementing this will must include the methods and its types, we can define a default method like get_description, modify or let it be for the elements this trait implement
 trait Accommodation {
     fn book(&mut self, name: &str, nights: u32) -> ();
-
-    fn like_ref(self) -> &'static Self {&self}
 }
 
 trait Description {
@@ -112,23 +109,19 @@ fn book_for_two_nights<T: Accommodation>(entity: &mut T, guest: &str) {
     entity.book(guest, 2)
 }
 
-enum _Number<T> {
-    Single(T),
-    Many(Vec<T>),
-}
-
 /**Trait bound again
     - Use 'dyn' for make the type dynamic, not necessary equal in every case -> This is a trait object
     - To point multiple traits, we can 'sum' the trait like this: '(impl trait + trait)'
 */
-fn mix_and_match<T>(places: _Number<&mut (dyn T)>, guest: &str)
+fn mix_and_match<T, U>(first: &mut T, second: &mut U, guest: &str) -> ()
 where
-    T: Accommodation + Description
+    T: Accommodation + Description,
+    U: Accommodation
 {
-    match places {
-        Single(place) => book_for_one_night(place, guest),
-        Many(places) => places.iter().for_each(|place: T| book_for_one_night(place, guest)),
-    }
+    first.book(guest, 1);
+    first.get_description();
+
+    second.book(guest, 1);
 }
 
 /**Where clauses
@@ -147,7 +140,7 @@ fn mix_and_match_where<T, U> (first: &mut T, second: &mut U, guest: &str)
 
 /// Traits as Function Return values -> keep watch the returned type is all "impl Accommodation + Description", both, no one separated of other
 fn choose_best_place_to_stay () -> impl Accommodation + Description {
-    Hotel::new("The Luxe");
+    Hotel::new("The Luxe")
 }
 
 
@@ -155,7 +148,7 @@ pub fn main () {
     let mut deluxe = Hotel::new("The Luxe");
     let mut my_house = AirBnb::new("Peter");
 
-    mix_and_match(Many(vec![&mut my_house, &mut deluxe]), "Sergio");
+    mix_and_match(&mut deluxe, &mut my_house, "Sergio");
     let mut hotel_without_display = Hotel::new(vec!["Notdis Play"]);
     println!("{:?} not implements display method and not reach summarize method", hotel_without_display);
 }

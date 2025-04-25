@@ -33,7 +33,7 @@ pub fn main () {
     println!("Good practices");
     println!("First: .entry ensures that the value exist or not, returning it, later we can modify or aggregate a value");
 
-    hm_ex.entry("Manza").and_modify("David");
+    hm_ex.entry("Manza").and_modify(move |x| {*x = "David"});
 
     hm_ex.entry("Samu").or_insert("Elvis");
 
@@ -45,7 +45,7 @@ pub fn main () {
 
     println!("Has the same methods than Hashmap but .entry");
 
-    let mut set_ex = HashSet::from("Molly");
+    let mut set_ex = HashSet::from(["Molly"]);
 
     set_ex.insert("David");
     set_ex.insert("Manza");

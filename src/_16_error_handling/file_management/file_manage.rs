@@ -1,5 +1,5 @@
 use std::fs;
-use std::io::{stdin, Error, Read};
+use std::io::{stdin, Error};
 
 pub fn main () {
     let file_result = read_file();

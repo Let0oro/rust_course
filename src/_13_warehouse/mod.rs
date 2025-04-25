@@ -1,3 +1,14 @@
+//! This is a documentation comment that serves to teach about all the file
+/*!
+This is the same but multiline
+*/
+
+/// This is a documentation comment which serves as documentation to future developers
+/**
+This is another documentation comment but with more lines and simplicity, both two serves to teach about the element in the following line
+*/
+
+
 mod inventory;
 mod orders;
 mod exercise;
@@ -212,16 +223,6 @@ pub fn main () {
     println!("If we run the command 'cargo doc --no-deps', the webpage generated with documentation not generate documentation of external crates in dependencies");
 
     println!("If we add '--open', the html files will be automatically opened in the browser");
-
-    /// This is a documentation comment which serves as documentation to future developers
-    /**
-        This is another documentation comment but with more lines and simplicity, both two serves to teach about the element in the following line
-    */
-
-    //! This is a documentation comment that serves to teach about all the file
-    /*!
-        This is the same but multiline
-    */
 
     println!("I LOVE IT!!!");
 
