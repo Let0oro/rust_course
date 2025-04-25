@@ -7,15 +7,6 @@ use std::process::Command;
 
 // "mod" sirve para importar otros archivos, estos últimos tienen que estar al mismo nivel que este directorio, en una carpeta llamada "mod" o en un archivo con este mismo nombre
 mod _0_setup;
-mod _1_variables_and_mutability;
-mod _2_data_types;
-mod _3_functions;
-mod _4_control_flow;
-mod _5_ownership;
-mod _6_ref_borrow;
-mod _7_slices;
-mod _8_structs;
-mod _9_enums;
 mod _10_generics;
 mod _11_opt_result_enums;
 mod _12_vectors;
@@ -27,10 +18,20 @@ mod _17_traits;
 mod _17_traits_2;
 mod _17_traits_3;
 mod _18_lifetimes;
+mod _19_clousures;
+mod _1_variables_and_mutability;
+mod _2_data_types;
+mod _3_functions;
+mod _4_control_flow;
+mod _5_ownership;
+mod _6_ref_borrow;
+mod _7_slices;
+mod _8_structs;
+mod _9_enums;
 
 use _0_setup::print::prints;
 
-use _1_variables_and_mutability::{constants, guess_number, variables, exercise};
+use _1_variables_and_mutability::{constants, exercise, guess_number, variables};
 
 use _2_data_types as _2_; //_2_.../mod.rs
 
@@ -39,12 +40,12 @@ use _3_functions as _3_;
 use _4_control_flow as _4_;
 
 use self::{
-    _5_ownership as _5_,  _6_ref_borrow as _6_,          _7_slices as _7_,    _8_structs as _8_,     _9_enums as _9_,
-    _10_generics as _10_, _11_opt_result_enums as _11_,  _12_vectors as _12_, _13_warehouse as _13_, _14_strings as _14_,
-    _15_hashmap as _15_,  _16_error_handling as _16_,    _17_traits as _17_, _17_traits_2 as _17_2, _17_traits_3 as _17_3,
-    _18_lifetimes as _18_,
+    _5_ownership as _5_, _6_ref_borrow as _6_, _7_slices as _7_, _8_structs as _8_,
+    _9_enums as _9_, _10_generics as _10_, _11_opt_result_enums as _11_, _12_vectors as _12_,
+    _13_warehouse as _13_, _14_strings as _14_, _15_hashmap as _15_, _16_error_handling as _16_,
+    _17_traits as _17_, _17_traits_2 as _17_2, _17_traits_3 as _17_3, _18_lifetimes as _18_,
+    _19_clousures as _19_,
 };
-
 
 fn main() {
     // vector (o array de tamaño no fijo) para seleccionar en consola el temario en concreto que se quiera ver
@@ -70,6 +71,7 @@ fn main() {
         "Traits 2",
         "Traits 3",
         "Lifetimes",
+        "Clousures",
     ];
 
     clear_console();
@@ -127,6 +129,7 @@ fn cases_option_selected(options: Vec<&str>, selection: usize) {
         "Traits 2" => _17_2::main(),
         "Traits 3" => _17_3::main(),
         "Lifetimes" => _18_::main(),
+        "Clousures" => _19_::main(),
 
         _ => println!("Please select a valid option"),
     }
